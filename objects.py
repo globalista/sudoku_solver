@@ -18,19 +18,17 @@ class Box:
 
 
 class Field:
-    def __init__(self, matrix):
+    def __init__(self, m=9, n=9):
         self.field = []
-        for i in range(m):
-            new_line = []
-            for j in range(n):
-                new_box = Box()
-                new_line.append(new_box)
-            self.field.append(new_line)
+        for i in range(m*n):
+            new_box = Box()
+            self.field.append(new_box)
+
 
     def print9x9(self):
         for i in range(9):
             for j in range(9):
-                value = self.field[i][j].value
+                value = self.field[i*9 + j].value
                 if value:
                     print(value, end =' ' )
                 else:
@@ -47,6 +45,8 @@ class Field:
 class Area:
     def __init__(self, list_of_coords, field):
         self.field = []
+        for i,j in list_of_coords:
+            self.field.append(field.field[i*9+j])
         self.nums_to_fill = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
     def remove_from_possible_values(self, value):
@@ -59,7 +59,7 @@ class Area:
 
 if __name__ == '__main__':
     fieldtest = Field()
-    fieldtest.load_input('vstup')
+
     fieldtest.print9x9()
 
 
