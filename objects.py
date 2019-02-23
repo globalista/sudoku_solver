@@ -39,7 +39,7 @@ class Field:
                     print()
             if i in {2, 5}:
                 print()
-
+        print()
 
 
 class Area:

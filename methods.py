@@ -33,9 +33,9 @@ def set_value_and_delete_it_from_areas(box, list_of_all_areas, value):
     :param value:
     :return: set value to the box and delete the value in all other areas containing
     '''
-    box.set_value(value)
-    for area in areas_containing_the_box(box, list_of_all_areas):
-        area.remove_from_possible_values(value)
+    if box.set_value(value):
+        for area in areas_containing_the_box(box, list_of_all_areas):
+            area.remove_from_possible_values(value)
 
 
 def load_input(field, matrix, areas):
