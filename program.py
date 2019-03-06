@@ -1,4 +1,5 @@
-from objects import Field, Area
+from objects.field import Field
+from objects.area import Area
 from areas_settings import areas_coords
 from conditions import condition1, condition2
 from solver import solver
