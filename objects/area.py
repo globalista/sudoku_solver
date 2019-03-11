@@ -1,9 +1,7 @@
 class Area:
-    def __init__(self, list_of_coords, field):
-        self.field = []
-        for i,j in list_of_coords:
-            self.field.append(field.field[i*9+j])
-        self.nums_to_fill = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    def __init__(self, list_of_boxes, symbols_to_fill):
+        self.field = list_of_boxes
+        self.nums_to_fill = symbols_to_fill
 
     def remove_from_possible_values(self, value):
         if value in self.nums_to_fill:

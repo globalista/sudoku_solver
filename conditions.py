@@ -15,7 +15,7 @@ def condition1(field, list_of_all_areas):
     return process
 
 
-def condition2(list_of_all_areas):
+def condition2(list_of_all_areas, symbols_to_fill):
     '''
     zjistim, zda a ktere cislo se da vepsat prave a jen na jedno misto
     :param area:
@@ -23,7 +23,8 @@ def condition2(list_of_all_areas):
     '''
     process = False
     for area in list_of_all_areas:
-        for i in range(1, 10):
+        for i in symbols_to_fill:
+            print(i)
             if sum([box.possible_values.count(i) for box in area.field]) == 1:
                 for j in area.field:
                     if i in j.possible_values:

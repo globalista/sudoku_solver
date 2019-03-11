@@ -1,6 +1,6 @@
 class Box:
-    def __init__(self):
-        self.possible_values = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    def __init__(self, possible_values):
+        self.possible_values = possible_values
         self.value = None
 
     def set_value(self, value): #nastavi value, poss_value=[]
