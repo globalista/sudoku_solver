@@ -29,7 +29,6 @@ def nacti_areas(field, vstup3, all_areas):
                 new_list += line.strip().split()
             elif new_list:
                 actual_set_of_areas = make_dict(new_list, field)
-                #print(actual_set_of_areas.keys())
                 for i in actual_set_of_areas.keys():
                     new_area = Area(actual_set_of_areas[i], symbols_to_fill=['1', '2', '3', '4', '5', '6', '7', '8', '9'])
                     all_areas.add_area(new_area)
@@ -57,9 +56,7 @@ def initialize(vstup1, vstup2, vstup3):
     field = Field()
     nacti_field(field, vstup2, symbols_to_fill)
     all_areas = AllAreas()
-    print(len(all_areas.list_of_all_areas))
     nacti_areas(field, vstup3, all_areas)
-    print(len(all_areas.list_of_all_areas))
     return field, all_areas
 
     #mame vyplnene pole a vsechny areas v all_areas

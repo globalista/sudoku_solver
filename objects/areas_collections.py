@@ -10,7 +10,6 @@ class AllAreas:
         for area in self.list_of_all_areas:
             if box in area.field:
                 areas_containing.append(area)
-        print(len(areas_containing), len(areas_containing[2].field))
         return areas_containing
 
     def set_value_and_delete_it_from_areas(self, box, value):
