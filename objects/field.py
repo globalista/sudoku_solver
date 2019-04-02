@@ -1,6 +1,12 @@
+from . import box
+
 class Field:
-    def __init__(self):
+    def __init__(self, length, possible_values):
         self.field = []
+        for i in range(length):
+            new_box = box.Box(possible_values)
+            self.field.append(new_box)
+
 
     def print9x9(self):
         for i in range(9):

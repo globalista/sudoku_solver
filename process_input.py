@@ -1,4 +1,3 @@
-from objects.box import Box
 from objects.field import Field
 from objects.area import Area
 from objects.areas_collections import AllAreas
@@ -10,15 +9,21 @@ def nacti_symbols_to_fill(vstup1):
     return symbols_to_fill
 
 
-def nacti_field(field, vstup2, symbols_to_fill): #vytvori pole a cisla zapise jako prazdne pole s jedinou poss_value
+def make_a_list_of_requested_values(vstup2):
     with open(vstup2) as f:
+        list_of_req_vals = []
         for line in f:
-            new_line = line.strip().split()
-            for i in new_line:
-                new_box = Box(symbols_to_fill)
-                if i in symbols_to_fill:
-                    new_box.possible_values = [i]
-                field.field.append(new_box)
+            list_of_req_vals += line.strip().split()
+    return list_of_req_vals
+
+
+def upload_requested_values(field, vstup2, areas):
+    list_of_req_vals = make_a_list_of_requested_values(vstup2)
+    if len(list_of_req_vals) != len(field.field):
+        raise IndexError('Zadani neodpovida velikosti pole')
+    for i,j in zip(list_of_req_vals, field.field):
+        if i in j.possible_values:
+            areas.set_value_and_delete_it_from_areas(j,i)
 
 
 def nacti_areas(field, vstup3, all_areas):
@@ -53,10 +58,11 @@ def make_dict(list, field):
 
 def initialize(vstup1, vstup2, vstup3):
     symbols_to_fill = vstup1
-    field = Field()
-    nacti_field(field, vstup2, symbols_to_fill)
+    field = Field(81, symbols_to_fill)
+    #nacti_field(field, vstup2, symbols_to_fill)
     all_areas = AllAreas()
     nacti_areas(field, vstup3, all_areas)
+    upload_requested_values(field, vstup2, all_areas)
     return field, all_areas
 
     #mame vyplnene pole a vsechny areas v all_areas
