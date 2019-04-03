@@ -7,6 +7,15 @@ class Field:
             new_box = box.Box(possible_values)
             self.field.append(new_box)
 
+    def print_in_n_columns(self, n):
+        for i in self.field:
+            if i.value:
+                print(i.value,end = ' ')
+            else:
+                print('x',end=' ')
+            if self.field.index(i) % n == n-1:
+                print()
+
 
     def print9x9(self):
         for i in range(9):
