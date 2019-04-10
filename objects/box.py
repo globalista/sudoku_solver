@@ -4,6 +4,11 @@ class Box:
         self.possible_values = list(possible_values)
         self.value = None
 
+    def make_copy(self):
+        new_box = Box(list(self.possible_values))
+        new_box.value = self.value
+        return new_box
+
     def set_value(self, value): #nastavi value, poss_value=[]
         if value in self.possible_values:
             self.value = value

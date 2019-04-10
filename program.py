@@ -1,6 +1,7 @@
 from process_input import initialize
 from conditions import condition1, condition2
 from solver import solver
+from rekurze import do_solving
 
 list_of_values = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 input_values = 'zadani_soubory\\vstup'
@@ -9,7 +10,9 @@ field_length = 81
 
 if __name__ == '__main__':
     field, all_areas = initialize(list_of_values, input_values, input_areas, field_length)
-    solver(field, all_areas, condition1, condition2, list_of_values )
+    solver(field, all_areas, condition1, condition2, list_of_values)
+    do_solving(field, all_areas, list_of_values)
+    print(field.solved())
     field.print9x9()
 
 

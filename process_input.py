@@ -56,7 +56,7 @@ def make_dict(list, field):
     return new_dict
 
 
-def initialize(vstup1, vstup2, vstup3, n=81):
+def initialize(vstup1, vstup2, vstup3, n):
     symbols_to_fill = vstup1
     field = Field(n, symbols_to_fill)
     #nacti_field(field, vstup2, symbols_to_fill)

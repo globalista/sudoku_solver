@@ -7,6 +7,9 @@ class Field:
             new_box = box.Box(possible_values)
             self.field.append(new_box)
 
+    def solved(self):
+        return all(i.value for i in self.field)
+
     def print_in_n_columns(self, n):
         for i in self.field:
             if i.value:
@@ -33,3 +36,16 @@ class Field:
                 print()
         print()
         print()
+
+    def find_first_unsolved_box(self):
+        for i in self.field:
+            if not i.value:
+                return i
+
+
+    def make_copy(self):
+        new_field = Field(0, possible_values)
+        for i in self.field:
+            new_box = i.make_copy()
+            new_field.field.append(new_box)
+        return new_field
