@@ -20,5 +20,3 @@ class Box:
             self.possible_values.remove(value)
             return True
         return False
-
-

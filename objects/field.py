@@ -1,5 +1,6 @@
 from . import box
 
+
 class Field:
     def __init__(self, length, possible_values):
         self.field = []
@@ -13,23 +14,22 @@ class Field:
     def print_in_n_columns(self, n):
         for i in self.field:
             if i.value:
-                print(i.value,end = ' ')
+                print(i.value, end=' ')
             else:
-                print('x',end=' ')
+                print('x', end=' ')
             if self.field.index(i) % n == n-1:
                 print()
-
 
     def print9x9(self):
         for i in range(9):
             for j in range(9):
                 value = self.field[i*9 + j].value
                 if value:
-                    print(value, end =' ' )
+                    print(value, end=' ')
                 else:
-                    print('x', end = ' ')
+                    print('x', end=' ')
                 if j in {2, 5}:
-                    print(' ', end = ' ')
+                    print(' ', end=' ')
                 if j == 8:
                     print()
             if i in {2, 5}:
@@ -37,15 +37,7 @@ class Field:
         print()
         print()
 
-    def find_first_unsolved_box(self):
+    def find_the_first_unsolved_box(self):
         for i in self.field:
             if not i.value:
                 return i
-
-
-    def make_copy(self):
-        new_field = Field(0, possible_values)
-        for i in self.field:
-            new_box = i.make_copy()
-            new_field.field.append(new_box)
-        return new_field

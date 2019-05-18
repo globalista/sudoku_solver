@@ -13,8 +13,3 @@ if __name__ == '__main__':
     solver(field, all_areas, condition1, condition2, list_of_values)
     print(field.solved())
     field.print9x9()
-
-
-
-
-
