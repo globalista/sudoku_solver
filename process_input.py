@@ -17,16 +17,16 @@ def make_a_list_of_requested_values(vstup2):
     return list_of_req_vals
 
 
-def upload_requested_values(field, vstup2, areas):
+def upload_requested_values(field, vstup2, areas, symbols_to_fill):
     list_of_req_vals = make_a_list_of_requested_values(vstup2)
     if len(list_of_req_vals) != len(field.field):
         raise IndexError('Zadani neodpovida velikosti pole')
-    for i,j in zip(list_of_req_vals, field.field):
-        if i in j.possible_values:
-            areas.set_value_and_delete_it_from_areas(j,i)
+    for i, j in zip(list_of_req_vals, field.field):
+        if i in symbols_to_fill:
+            areas.set_value_and_delete_it_from_areas(j, i)
 
 
-def nacti_areas(field, vstup3, all_areas):
+def upload_areas(field, vstup3, all_areas):
     with open(vstup3) as f:
         new_list = []
         for line in f:
@@ -38,7 +38,6 @@ def nacti_areas(field, vstup3, all_areas):
                     new_area = Area(actual_set_of_areas[i], symbols_to_fill=['1', '2', '3', '4', '5', '6', '7', '8', '9'])
                     all_areas.add_area(new_area)
                 new_list = []
-
 
 
 def make_dict(list, field):
@@ -59,13 +58,13 @@ def make_dict(list, field):
 def initialize(vstup1, vstup2, vstup3, n):
     symbols_to_fill = vstup1
     field = Field(n, symbols_to_fill)
-    #nacti_field(field, vstup2, symbols_to_fill)
+    # nacti_field(field, vstup2, symbols_to_fill)
     all_areas = AllAreas()
-    nacti_areas(field, vstup3, all_areas)
-    upload_requested_values(field, vstup2, all_areas)
+    upload_areas(field, vstup3, all_areas)
+    upload_requested_values(field, vstup2, all_areas, symbols_to_fill)
     return field, all_areas
 
-    #mame vyplnene pole a vsechny areas v all_areas
+    # mame vyplnene pole a vsechny areas v all_areas
 
 
 

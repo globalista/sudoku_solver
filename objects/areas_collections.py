@@ -13,8 +13,9 @@ class AllAreas:
         return areas_containing
 
     def set_value_and_delete_it_from_areas(self, box, value):
-        if box.set_value(value):
-            for area in self.areas_containing_the_box(box):
-                area.remove_from_possible_values(value)
-        else:
+        try:
+            box.set_value(value)
+        except ValueError:
             raise ValueError('z nejakeho duvodu nelze zapsat hodnotu', value, box.possible_values)
+        for area in self.areas_containing_the_box(box):
+            area.remove_from_possible_values(value)
