@@ -1,0 +1,20 @@
+OBJECTS
+----------------
+
+    BOX
+
+        # possible_values -- given symbols to fill
+
+        # value -- None if box is unfilled
+
+        --------
+
+        * set_value(value) -- set value and delete list of possible_values, if value not in possible values, raise error
+
+        * remove_from_possible_values(value) -- remove_from_possible_values, if value not there, return False
+
+        * make_copy()
+
+
+
+   

@@ -1,8 +1,8 @@
 from objects.field import Field
-from objects.area import Area
 from objects.areas_collections import AllAreas
 
-def nacti_symbols_to_fill(vstup1):
+
+def upload_symbols_to_fill(vstup1):
     with open(vstup1) as f:
         for line in f:
             symbols_to_fill = line.strip().split()
@@ -35,7 +35,8 @@ def upload_areas(field, vstup3, all_areas):
             elif new_list:
                 actual_set_of_areas = make_dict(new_list, field)
                 for i in actual_set_of_areas.keys():
-                    new_area = Area(actual_set_of_areas[i], symbols_to_fill=['1', '2', '3', '4', '5', '6', '7', '8', '9'])
+                    # new_area = Area(actual_set_of_areas[i], ['1', '2', '3', '4', '5', '6', '7', '8', '9'])
+                    new_area = actual_set_of_areas[i]
                     all_areas.add_area(new_area)
                 new_list = []
 

@@ -22,8 +22,8 @@ def condition2(all_areas, symbols_to_fill):
     process = False
     for area in all_areas.list_of_all_areas:
         for i in symbols_to_fill:
-            if sum([box.possible_values.count(i) for box in area.field]) == 1:
-                for j in area.field:
+            if sum([box.possible_values.count(i) for box in area]) == 1:
+                for j in area:
                     if i in j.possible_values:
                         box = j
                 all_areas.set_value_and_delete_it_from_areas(box, i)

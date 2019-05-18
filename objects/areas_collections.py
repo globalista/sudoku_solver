@@ -8,7 +8,7 @@ class AllAreas:
     def areas_containing_the_box(self, box):
         areas_containing = []
         for area in self.list_of_all_areas:
-            if box in area.field:
+            if box in area:
                 areas_containing.append(area)
         return areas_containing
 
@@ -18,4 +18,7 @@ class AllAreas:
         except ValueError:
             raise ValueError('z nejakeho duvodu nelze zapsat hodnotu', value, box.possible_values)
         for area in self.areas_containing_the_box(box):
-            area.remove_from_possible_values(value)
+            # area.remove_from_possible_values(value)
+            for box in area:
+                if value in box.possible_values:
+                    box.remove_from_possible_values(value)
