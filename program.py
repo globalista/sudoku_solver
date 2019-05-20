@@ -9,7 +9,10 @@ input_areas = 'zadani_soubory/klasik_9x9'
 field_length = 81
 
 if __name__ == '__main__':
-    field, all_areas = initialize(list_of_values, input_values, input_areas, field_length)
-    solver(field, all_areas, condition1, condition2, list_of_values)
-    print(field.solved())
-    field.print9x9()
+    # field, all_areas = initialize(list_of_values, input_values, input_areas, field_length)
+    task = initialize(list_of_values, input_values, input_areas, field_length)
+    # solver(field, all_areas, condition1, condition2, list_of_values)
+    solver(task.field, task.areas_collection, condition1, condition2, list_of_values)
+
+    print(task.field.solved())
+    task.field.print9x9()

@@ -1,5 +1,4 @@
-from objects.field import Field
-from objects.areas_collections import AllAreas
+from objects.task import Task
 
 
 def upload_symbols_to_fill(vstup1):
@@ -57,10 +56,11 @@ def make_dict(list_of_characters, field):
 
 def initialize(vstup1, vstup2, vstup3, n):
     symbols_to_fill = vstup1
-    field = Field(n, symbols_to_fill)
-    # nacti_field(field, vstup2, symbols_to_fill)
-    all_areas = AllAreas()
-    upload_areas(field, vstup3, all_areas)
-    upload_requested_values(field, vstup2, all_areas, symbols_to_fill)
-    return field, all_areas
+    # field = Field(n, symbols_to_fill)
+    # all_areas = AllAreas()
+    task = Task(n, symbols_to_fill)
+    upload_areas(task.field, vstup3, task.areas_collection)
+    upload_requested_values(task.field, vstup2, task.areas_collection, symbols_to_fill)
+    # return field, all_areas
+    return task
     # mame vyplnene pole a vsechny areas v all_areas
