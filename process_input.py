@@ -16,51 +16,48 @@ def make_a_list_of_requested_values(vstup2):
     return list_of_req_vals
 
 
-def upload_requested_values(field, vstup2, areas, symbols_to_fill):
+def upload_requested_values(task, vstup2):
     list_of_req_vals = make_a_list_of_requested_values(vstup2)
-    if len(list_of_req_vals) != len(field.field):
+    if len(list_of_req_vals) != len(task.field.field):
         raise IndexError('Zadani neodpovida velikosti pole')
-    for i, j in zip(list_of_req_vals, field.field):
-        if i in symbols_to_fill:
-            areas.set_value_and_delete_it_from_areas(j, i)
+    for i, j in zip(list_of_req_vals, task.field.field):
+        if i in task.symbols:
+            task.areas_collection.set_value_and_delete_it_from_areas(j, i)
 
 
-def upload_areas(field, vstup3, all_areas):
+def upload_areas(task, vstup3):
     with open(vstup3) as f:
         new_list = []
         for line in f:
             if line != '\n':
                 new_list += line.strip().split()
             elif new_list:
-                actual_set_of_areas = make_dict(new_list, field)
+                actual_set_of_areas = make_dict(task, new_list)
                 for i in actual_set_of_areas.keys():
                     new_area = actual_set_of_areas[i]
-                    all_areas.add_area(new_area)
+                    task.areas_collection.add_area(new_area)
                 new_list = []
 
 
-def make_dict(list_of_characters, field):
-    n = len(field.field)
+def make_dict(task, list_of_characters):
+    n = len(task.field.field)
     if len(list_of_characters) != n:
-        raise ValueError('zadane oblasti nekoresponduji se zakladnim zadanim', n, len(list_of_characters), list_of_characters)
+        raise ValueError('zadane oblasti nekoresponduji se zakladnim zadanim', n, len(list_of_characters),
+                         list_of_characters)
     new_dict = {}
     for i in range(n):
         tohle = list_of_characters[i]
         if tohle.isalnum():
             if tohle in new_dict.keys():
-                new_dict[tohle] += [field.field[i]]
+                new_dict[tohle] += [task.field.field[i]]
             else:
-                new_dict[tohle] = [field.field[i]]
+                new_dict[tohle] = [task.field.field[i]]
     return new_dict
 
 
 def initialize(vstup1, vstup2, vstup3, n):
     symbols_to_fill = vstup1
-    # field = Field(n, symbols_to_fill)
-    # all_areas = AllAreas()
     task = Task(n, symbols_to_fill)
-    upload_areas(task.field, vstup3, task.areas_collection)
-    upload_requested_values(task.field, vstup2, task.areas_collection, symbols_to_fill)
-    # return field, all_areas
+    upload_areas(task, vstup3)
+    upload_requested_values(task, vstup2)
     return task
-    # mame vyplnene pole a vsechny areas v all_areas
