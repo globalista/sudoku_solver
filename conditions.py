@@ -25,7 +25,6 @@ def condition2(task):
                         box = j
                 task.areas_collection.set_value_and_delete_it_from_areas(box, i)
                 process = True
-
     return process
 
 
