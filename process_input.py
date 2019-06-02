@@ -55,9 +55,9 @@ def make_dict(task, list_of_characters):
     return new_dict
 
 
-def initialize(vstup1, vstup2, vstup3, n):
+def initialize(vstup1, vstup2, vstup3, n, conditions):
     symbols_to_fill = vstup1
-    task = Task(n, symbols_to_fill)
+    task = Task(n, symbols_to_fill, conditions)
     upload_areas(task, vstup3)
     upload_requested_values(task, vstup2)
     return task
