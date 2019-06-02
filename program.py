@@ -1,5 +1,5 @@
 from process_input import initialize
-from conditions import condition1, condition2
+from conditions import conditions
 from solver import solver
 
 
@@ -10,6 +10,6 @@ field_length = 81
 
 if __name__ == '__main__':
     task = initialize(list_of_values, input_values, input_areas, field_length)
-    solver(task, condition1, condition2)
+    solver(task, conditions)
     print(task.field.solved())
     task.field.print9x9()

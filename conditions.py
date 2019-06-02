@@ -1,8 +1,6 @@
-def condition1(task):  # (field, all_areas)
+def condition1(task):
     '''
     projde pole a  pokud je nekde jedina poss_value, zapise ji a vyskrta v prislusnych areas
-    :param field:
-    :param list_of_all_areas:
     :return: True if process or False
     '''
     process = False
@@ -13,10 +11,9 @@ def condition1(task):  # (field, all_areas)
     return process
 
 
-def condition2(task):  # (all_areas, symbols_to_fill):
+def condition2(task):
     '''
     zjistim, zda a ktere cislo se da vepsat prave a jen na jedno misto
-    :param area:
     :return: to teprve uvidime, co budeme potrebovat
     '''
     process = False
@@ -30,3 +27,6 @@ def condition2(task):  # (all_areas, symbols_to_fill):
                 process = True
 
     return process
+
+
+conditions = [condition1, condition2]
