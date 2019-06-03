@@ -27,5 +27,16 @@ def condition2(task):
                 process = True
     return process
 
+def condition3(task):
+    '''
+    pokud v nekterem poli nemuze byt ani jedna hodnota, neco je spatne
+    :return:
+    '''
+    for box in task.field.field:
+        if not box.value and len(box.possible_values) == 0:
+            print(task.field.field.index(box))
+            raise ValueError
 
-conditions = [condition1, condition2]
+
+
+conditions = [condition1, condition2, condition3]

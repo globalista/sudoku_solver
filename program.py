@@ -1,5 +1,5 @@
 from process_input import initialize
-from solver import solver
+from solver import solver, solver_with_recursion
 from conditions import conditions
 
 
@@ -14,3 +14,10 @@ if __name__ == '__main__':
     result = solver(task)
     print(result.field.solved())
     result.field.print9x9()
+    print()
+    result = solver_with_recursion(result)
+    result.field.print9x9()
+
+
+
+
