@@ -4,8 +4,11 @@ from conditions import conditions
 
 
 list_of_values = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-input_values = 'zadani_soubory/pp1836'
-input_areas = 'zadani_soubory/klasik_9x9'
+#input_values = 'zadani_soubory/pp1836'
+#input_areas =  'zadani_soubory/klasik_9x9'
+input_values = 'zadani_soubory/logika19_4/10_parkety'
+input_areas = 'zadani_soubory/logika19_4/10_pole'
+
 field_length = 81
 
 

@@ -24,6 +24,8 @@ def solver_with_recursion(task):
         the_box = new_task.field.find_the_first_unsolved_box()
         print(value, new_task.field.field.index(the_box))
         new_task.areas_collection.set_value_and_delete_it_from_areas(the_box, value)
-        new_result = solver(new_task)
-        if new_result:
-            return solver_with_recursion(new_result)
+        s_result = solver(new_task)
+        if s_result:
+            sr_result = solver_with_recursion(s_result)
+            if sr_result:
+                return sr_result
