@@ -15,7 +15,7 @@ field_length = 81
 if __name__ == '__main__':
     task = initialize(list_of_values, input_values, input_areas, field_length, conditions)
     result = solver(task)
-    print(result.field.solved())
+    #print(result.field.solved())
     result.field.print9x9()
     print()
     result = solver_with_recursion(result)

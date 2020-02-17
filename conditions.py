@@ -34,7 +34,7 @@ def condition3(task):
     '''
     for box in task.field.field:
         if not box.value and len(box.possible_values) == 0:
-            print(task.field.field.index(box))
+            #print(task.field.field.index(box))
             raise ValueError
 
 
