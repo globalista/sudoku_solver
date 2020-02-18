@@ -1,0 +1,63 @@
+OBJECTS
+----------------
+
+    BOX (symbols to fill)
+
+        # possible_values -- given symbols to fill
+
+        # value -- None if box is unfilled
+
+        --------
+
+        * set_value(value) -- set value and delete list of possible_values, if value not in possible values, raise error
+
+        * remove_from_possible_values(value) -- remove_from_possible_values, if value not there, return False
+
+        * make_copy()
+
+
+
+    FIELD (length, symbols to fill)
+
+        # field -- list of boxes
+
+        --------
+
+        * solved() -- return True if all boxes are filled
+
+        * print_in_n_columns(n) -- print values of the field in given number of columns
+
+        * print9x9() -- print field in format of classic sudoku
+
+        * find_the_first_unsolved_box() -- return the first unsolved box
+
+
+
+    AREAS_COLLECTION ()
+
+        # list_of_all_areas -- []
+
+        --------
+
+        * add_area(area) -- add area to list_of_all_areas
+
+        * areas_containing_the_box(box) -- return list of areas containing the box
+
+        * set_values_and_delete_it_from_areas(box, value) -- set the value to the box and delete it from areas containing the box
+
+
+    TASK (length, symbols to fill)
+
+        # field -- Field(length, symbols_to_fill)
+
+        # areas_collection
+
+        # symbols -- symbols to fill
+
+
+
+CONDITIONS
+--------
+
+
+
